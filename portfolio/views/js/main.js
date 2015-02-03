@@ -451,7 +451,7 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
 	console.log("Changing pizza size");
-    /*
+
 	var pizzaNodes = document.querySelectorAll(".randomPizzaContainer");
 	var pizzaNodesLen = pizzaNodes.length;
 	for (var i = 0; i < pizzaNodesLen; i++) {
@@ -459,14 +459,14 @@ var resizePizzas = function(size) {
 	      var newwidth = (pizzaNodes[i].offsetWidth + dx) + 'px';
 	      pizzaNodes[i].style.width = newwidth;
 	}
-	*/
-	/* Replaced the following with the function above. We gain around 15-30ms on pizza resize */
+
+	/* Replaced the following with the function above. We gain around 15-30ms on pizza resize
 	 for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
       var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
       var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
       document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     }
-    
+    */
   }
 
   changePizzaSizes(size);
