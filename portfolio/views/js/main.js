@@ -515,9 +515,9 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-var items = document.querySelectorAll('.mover');
-console.log("number of items: " + items.length);
-  for (var i = 0; i < items.length; i++) {
+//var items = document.querySelectorAll('.mover');
+//console.log("number of items: " + items.length);
+  for (var i = 0; i < numberOfItems; i++) {
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
@@ -534,7 +534,7 @@ console.log("number of items: " + items.length);
 
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
-
+var numberOfItems;
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
@@ -549,5 +549,6 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
+  numberOfItems = document.querySelectorAll('.mover').length;
   updatePositions();
 });
