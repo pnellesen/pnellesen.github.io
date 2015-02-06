@@ -513,14 +513,10 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 function updatePositions() {
   frame++;
+  var bodyTop = document.body.scrollTop / 1250;// This value will not change inside the loop, no need to recalculate it each time.
   window.performance.mark("mark_start_frame");
-
-//var items = document.querySelectorAll('.mover');
-//console.log("number of items: " + items.length);
-  var bodyTop = document.body.scrollTop / 1250;
   for (var i = 0; i < numberOfItems; i++) {
-    //var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-	  var phase = Math.sin((bodyTop) + (i % 5));
+	var phase = Math.sin((bodyTop) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -552,7 +548,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
-  items = document.querySelectorAll('.mover');
+  items = document.querySelectorAll('.mover');// Only need to set this up once - it won't change after the page has loaded
   numberOfItems = items.length;
   updatePositions();
 });
