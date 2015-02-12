@@ -451,16 +451,16 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
 	console.log("Changing pizza size");
-
 	var pizzaNodes = document.querySelectorAll(".randomPizzaContainer");
 	var pizzaNodesLen = pizzaNodes.length;
+	var dx = determineDx(pizzaNodes[0], size);// Pizzas will all be the same size, only need to calculate dx for first one
+	var newwidth = (pizzaNodes[0].offsetWidth + dx) + 'px';// same as for dx
 	for (var i = 0; i < pizzaNodesLen; i++) {
-	      var dx = determineDx(pizzaNodes[i], size);
-	      var newwidth = (pizzaNodes[i].offsetWidth + dx) + 'px';
 	      pizzaNodes[i].style.width = newwidth;
 	}
-
-	/* Replaced the following with the function above. We gain around 15-30ms on pizza resize
+	/* Replaced the following with the code above.
+	 * Can get all info needed to resize pizzas from first pizza in collection - no need to query DOM on every loop
+	 * 
 	 for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
       var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
       var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
