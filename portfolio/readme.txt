@@ -1,5 +1,12 @@
 Read Me File for Project 4 - Website Optimization
 =======================================================
+Update for 2nd submission (03/01)
+
+Made changes to improve paint times: Per hints given at the Office Hours for Projects 3 and 4, I added some code to limit
+the number of pizzas to only those which would actually be on the screen at the time the document was loaded (by comparing the 
+elem.top value to the window.outerHeight value). 
+
+-------------------------------------------------------------------------
 
 PageSpeed/Portfolio optimization (part 1):
 
