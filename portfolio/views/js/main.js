@@ -549,8 +549,9 @@ document.addEventListener('DOMContentLoaded', function() {
         elem.style.width = "73.333px";
         elem.basicLeft = (i % cols) * s;
         elem.style.top = pizzaTop + 'px';
+        document.querySelector("#movingPizzas1").appendChild(elem);
     }
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    
   }
   items = document.querySelectorAll('.mover');// Only need to set this up once - it won't change after the page has loaded
   numberOfItems = items.length;
