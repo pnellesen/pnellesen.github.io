@@ -539,13 +539,17 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   for (var i = 0; i < 200; i++) {
-    var elem = document.createElement('img');
-    elem.className = 'mover';
-    elem.src = "images/pizza.png";
-    elem.style.height = "100px";
-    elem.style.width = "73.333px";
-    elem.basicLeft = (i % cols) * s;
-    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    var pizzaTop = (Math.floor(i / cols) * s);
+    if (pizzaTop <= window.outerHeight) {// Do we need 200 pizzas even if only a fraction of them will be visible in the browser when the page loads?
+    	console.log("Pizza " + i + " is viewable: " + pizzaTop + " - outerHeight: " + window.outerHeight);
+        var elem = document.createElement('img');
+        elem.className = 'mover';
+        elem.src = "images/pizza.png";
+        elem.style.height = "100px";
+        elem.style.width = "73.333px";
+        elem.basicLeft = (i % cols) * s;
+        elem.style.top = pizzaTop + 'px';
+    }
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   items = document.querySelectorAll('.mover');// Only need to set this up once - it won't change after the page has loaded
