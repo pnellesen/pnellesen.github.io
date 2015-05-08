@@ -29,23 +29,22 @@
 			<button class="btn_save" title="Save list to local storage" data-bind="click: saveAllMarkers;">Save</button><button class="btn_delete" title="Clear all markers from map and storage" data-bind="click: removeAllMarkers">Clear</button>
 		</div>
 	</div>
+	<div id="mainMap" data-bind="text: mapErrorTxt"></div><!-- Map Div here -->
 </div>
 
-<div id="mainMap" class="col-md-12" data-bind="text: mapErrorTxt"></div><!-- Map Div here -->
-
 <div id="windowContainer" class="windowContainer"><!--  Hidden div to hold infoWindow content for each marker -->
-	<div class="windowContent" data-bind="with: selectedMarker">
-		<p><strong><span data-bind="text:city"></span></strong></p><p><span data-bind="text:state"></span>, <span data-bind="text:country"></span></p><p>Current temp: <span data-bind="text:currentTemp"></span>&deg; F</p>
-		<img data-bind="attr: {src:radarMap}">
-	</div>
-	<div id="buttonContainer"><button class="btn_save" title="Save this location" data-bind="click: saveSelectedMarker, visible: notSaved">Save</button><button class="btn_delete" title="Remove this location from map and storage" data-bind="click: removeSelectedMarker">Remove</button></div>	
+	<div class="allWindow">
+		<div class="windowContent" data-bind="with: selectedMarker">
+			<p><strong><span data-bind="text:city"></span></strong></p><p><span data-bind="text:state"></span>, <span data-bind="text:country"></span></p><p>Current temp: <span data-bind="text:currentTemp"></span>&deg; F</p>
+			<div class="mapImg"><img data-bind="attr: {src:radarMap}"></div>
+		</div>
+		<div id="buttonContainer"><button class="btn_save" title="Save this location" data-bind="click: saveSelectedMarker, visible: notSaved">Save</button><button class="btn_delete" title="Remove this location from map and storage" data-bind="click: removeSelectedMarker">Remove</button></div>
+	</div>	
 </div>
 
 <!-- JS here. Using CDNs where possible -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
 <script src="js/app.js"></script>
-
-
 </body>
 </html>
